@@ -13,83 +13,83 @@ import "../../node_modules/antd/dist/antd.css";
 import moment from 'moment';
 
 const DashboardItems = [
-    {
-        id: 0,
-        name: "Tags Chart",
-        vizState: {
-            query: {
-                measures: ["Tags.count"],
-                timeDimensions: [
-                    {
-                        dimension: "Tags.timestamp",
-                        granularity: "day"
-                    }
-                ],
-                dimensions: ["Tags.tag"],
-                filters: []
-            },
-            chartType: "line"
-        }
-    },
-    {
-        id: 1,
-        name: "Tags for the selected beriod",
-        vizState: {
-            query: {
-                measures: ["Tags.count"],
-                timeDimensions: [
-                    {
-                        dimension: "Tags.timestamp",
-                    }
-                ],
-                dimensions: ["Tags.tag"],
-                filters: []
-            },
+  {
+    id: 0,
+    name: "Tags Chart",
+    vizState: {
+      query: {
+        measures: ["Tags.count"],
+        timeDimensions: [
+          {
+            dimension: "Tags.timestamp",
+            granularity: "day"
+          }
+        ],
+        dimensions: ["Tags.tag"],
+        ilters: []
+      },
+      chartType: "line"
+    }
+  },
+  {
+    id: 1,
+    name: "Tags for the selected beriod",
+    vizState: {
+      query: {
+        measures: ["Tags.count"],
+        timeDimensions: [
+          {
+            dimension: "Tags.timestamp",
+          }
+        ],
+        dimensions: ["Tags.tag"],
+        filters: []
+      },
             chartType: "pie"
-        }
-    },
-    {
-        id: 2,
-        name: "Services distribution - click on bar to select a service",
-        vizState: {
-            query: {
-                measures: [
-                    "Tags.count"
-                ],
-                timeDimensions: [
-                    {
-                        "dimension": "Tags.timestamp"
-                    }
-                ],
-                dimensions: [
-                    "Tags.service"
-                ],
-                filters: []
-            },
-            chartType: "bar"
-        }
-    },
-    {
-        id: 3,
-        name: "Distribution by countries - click to select a country",
-        vizState: {
-            query: {
-                measures: [
-                    "Tags.count"
-                ],
-                timeDimensions: [
-                    {
-                        dimension: "Tags.timestamp"
-                    }
-                ],
-                dimensions: [
-                    "Tags.country"
-                ],
-                filters: []
-            },
-            chartType: "table"
-        }
-    },
+    }
+  },
+  {
+    id: 2,
+    name: "Services distribution - click on bar to select a service",
+    vizState: {
+      query: {
+        measures: [
+          "Tags.count"
+        ],
+        timeDimensions: [
+          {
+            "dimension": "Tags.timestamp"
+          }
+        ],
+        dimensions: [
+          "Tags.service"
+        ],
+        filters: []
+      },
+      chartType: "bar"
+    }
+  },
+  {
+    id: 3,
+    name: "Distribution by countries - click to select a country",
+    vizState: {
+      query: {
+        measures: [
+          "Tags.count"
+        ],
+        timeDimensions: [
+          {
+            dimension: "Tags.timestamp"
+          }
+        ],
+        dimensions: [
+          "Tags.country"
+        ],
+        filters: []
+      },
+      chartType: "table"
+    }
+  },
 ];
 
 const createStructure = ({ query, ...vizState }, granularity, dateRange, selectedService, selectedCountry) => {
@@ -121,16 +121,16 @@ const createStructure = ({ query, ...vizState }, granularity, dateRange, selecte
   return {
     ...vizState,
     query: {
-       ...query,
-       timeDimensions: [{
-                ...query.timeDimensions[0],
-                granularity: vizState.chartType == "line" ? granularity : null,
-                dateRange : dateRange ? dateRange : null
-            }],
-            filters: filters
+      ...query,
+      timeDimensions: [{
+        ...query.timeDimensions[0],
+        granularity: vizState.chartType == "line" ? granularity : null,
+          dateRange : dateRange ? dateRange : null
+        }],
+        filters: filters
 
-        }
-    }
+      }
+  }
 }
 
 const DashboardPage = () => {
