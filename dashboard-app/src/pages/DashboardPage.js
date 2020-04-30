@@ -26,7 +26,7 @@ const DashboardItems = [
           }
         ],
         dimensions: ["Tags.tag"],
-        ilters: []
+        filters: []
       },
       chartType: "line"
     }
