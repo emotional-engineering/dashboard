@@ -1,0 +1,14 @@
+{
+  "name": "cubetest",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "@cubejs-backend/mysql-driver": "^0.19.9",
+    "@cubejs-backend/server": "^0.19.10",
+    "@material-ui/core": "^4.9.12",
+    "material-ui": "^0.20.2"
+  }
+}
