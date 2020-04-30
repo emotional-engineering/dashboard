@@ -33,7 +33,7 @@ const DashboardItems = [
   },
   {
     id: 1,
-    name: "Tags for the selected beriod",
+    name: "Tags for the selected period",
     vizState: {
       query: {
         measures: ["Tags.count"],
